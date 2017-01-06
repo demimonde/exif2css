@@ -10,7 +10,7 @@
     "test": "ZOROASTER_TIMEOUT=10000 zoroaster test/spec",
     "build": "npm run build-normal && npm run build-min",
     "build-normal": "browserify src/index.js -o dist/exif2css.js --standalone exif2css",
-    "build-min": "browserify src/index.js -o dist/exif2css.js.min --standalone exif2css --transform uglifyify"
+    "build-min": "browserify src/index.js --standalone exif2css --transform uglifyify --debug | exorcist dist/exif2css.js.map > dist/exif2css.js.min"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
   "homepage": "https://github.com/Sobesednik/exif2css#readme",
   "devDependencies": {
     "browserify": "^13.3.0",
+    "exorcist": "^0.4.0",
     "node-resemble-js": "^0.2.0",
     "phantomjs-prebuilt": "^2.1.14",
     "selenium-webdriver": "^3.0.1",
