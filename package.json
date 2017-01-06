@@ -1,0 +1,30 @@
+{
+  "name": "exif2css",
+  "version": "1.0.0",
+  "description": "Convert EXIF orientation to CSS transform",
+  "main": "src/index.js",
+  "files": [
+    "src/"
+  ],
+  "scripts": {
+    "test": "zoroaster test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sobesednik/exif2css.git"
+  },
+  "keywords": [
+    "exif",
+    "css",
+    "orientation"
+  ],
+  "author": "Anton <anton@sobesednik.media>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sobesednik/exif2css/issues"
+  },
+  "homepage": "https://github.com/Sobesednik/exif2css#readme",
+  "devDependencies": {
+    "zoroaster": "^0.2.0"
+  }
+}
