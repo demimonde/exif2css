@@ -1,0 +1,15 @@
+{
+  "version": 3,
+  "sources": [
+    "node_modules/browser-pack/_prelude.js",
+    "src/index.js"
+  ],
+  "names": [],
+  "mappings": "AAAA;ACeA,QAAS,yBAAwB,GAC7B,MAAO,cAAa,GAGxB,QAAS,+BAA8B,GACnC,MAAO,SAAQ,GAGnB,QAAS,UAAS,GACd,GAAI,GAAY,wBAAwB,GACpC,EAAkB,8BAA8B,GAEhD,IAOJ,OANI,KACA,EAAI,UAAY,GAEhB,IACA,EAAI,oBAAsB,GAEvB,EAlCX,GAAI,eACA,OACA,OACA,kBACA,iBACA,iCACA,iCACA,kCACA,oEACA,oCAGA,QAAU,GAAI,OAAM,EACxB,SAAQ,KAAK,WAAY,cAAe,eAAgB,aAwBxD,OAAO,QAAU",
+  "file": "generated.js",
+  "sourceRoot": "",
+  "sourcesContent": [
+    "(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require==\"function\"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error(\"Cannot find module '\"+o+\"'\");throw f.code=\"MODULE_NOT_FOUND\",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require==\"function\"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})",
+    "var orientations = [\n    undefined,\n    undefined,\n    'rotateY(180deg)',\n    'rotate(180deg)',\n    'rotate(180deg) rotateY(180deg)',\n    'rotate(270deg) rotateY(180deg)',\n    'translateY(-100%) rotate(90deg)',\n    'translateY(-100%) translateX(-100%) rotate(90deg) rotateY(180deg)',\n    'translateX(-100%) rotate(270deg)'\n]\n\nvar origins = new Array(5)\norigins.push('top left', 'bottom left', 'bottom right', 'top right')\n\nfunction getOrientationTransform(orientation) {\n    return orientations[orientation]\n}\n\nfunction getOrientationTransformOrigin(orientation) {\n    return origins[orientation]\n}\n\nfunction exif2css(orientation) {\n    var transform = getOrientationTransform(orientation)\n    var transformOrigin = getOrientationTransformOrigin(orientation)\n\n    var css = {}\n    if (transform) {\n        css.transform = transform\n    }\n    if (transformOrigin) {\n        css['transform-origin'] = transformOrigin\n    }\n    return css\n}\n\nmodule.exports = exif2css\n"
+  ]
+}
