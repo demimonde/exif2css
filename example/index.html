@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>exif2css example</title>
+    </head>
+    <body>
+        <img src="../test/fixtures/images/4.jpg">
+        <script src="../dist/exif2css.js.min"></script>
+        <script>
+            var img = document.querySelector('img')
+            var orientation = 4
+            var css = exif2css(orientation)
+
+            if (css.transform) {
+                img.style.transform = css.transform
+            }
+            if (css['transform-origin']) {
+                img.style['transform-origin'] = css['transform-origin']
+            }
+        </script>
+    </body>
+</html>
