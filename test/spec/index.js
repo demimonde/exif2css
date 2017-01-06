@@ -8,7 +8,7 @@ const browserify = require('browserify')
 const index = require('../../src/index')
 
 const customPhantom = webdriver.Capabilities.phantomjs()
-customPhantom.set("phantomjs.binary.path", phantomjs)
+customPhantom.set('phantomjs.binary.path', phantomjs)
 
 let driver
 let bundle
@@ -68,7 +68,6 @@ function test(orientation, expectedMismatch) {
         .then(res => saveScreenshot(res, getArtifactsPath(`${orientation}.png`)))
         .then(res => compare(expectedImagePath, res))
         .then(res => {
-            console.log(res)
             res
                 .getDiffImage()
                 .pack()
@@ -105,6 +104,12 @@ module.exports = {
         },
     },
     spec: {
+        'should return empty transform for non-orientation': () => {
+            return driver.executeScript('return exif2css("not-orientation")')
+                .then(res =>
+                    assert(JSON.stringify({}) === JSON.stringify(res))
+                )
+        },
         'should transform 1 correctly': () => {
             return test(1, 0)
         },
@@ -129,5 +134,8 @@ module.exports = {
         'should transform 8 correctly': () => {
             return test(8, 1)
         },
+    },
+    after: {
+        'quit driver': () => driver.quit()
     },
 }
