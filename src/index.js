@@ -1,39 +1,31 @@
+var orientations = [
+    undefined,
+    undefined,
+    'rotateY(180deg)',
+    'rotate(180deg)',
+    'rotate(180deg) rotateY(180deg)',
+    'rotate(270deg) rotateY(180deg)',
+    'translateY(-100%) rotate(90deg)',
+    'translateY(-100%) translateX(-100%) rotate(90deg) rotateY(180deg)',
+    'translateX(-100%) rotate(270deg)'
+]
+
+var origins = new Array(5)
+origins.push('top left', 'bottom left', 'bottom right', 'top right')
+
 function getOrientationTransform(orientation) {
-    switch (orientation) {
-    case 2:
-        return 'rotateY(180deg)';
-    case 3:
-        return 'rotate(180deg)';
-    case 4:
-        return 'rotate(180deg) rotateY(180deg)';
-    case 5:
-        return 'rotate(270deg) rotateY(180deg)';
-    case 6:
-        return 'translateY(-100%) rotate(90deg)';
-    case 7:
-        return 'translateY(-100%) translateX(-100%) rotate(90deg) rotateY(180deg)'
-    case 8:
-        return 'translateX(-100%) rotate(270deg)';
-    }
+    return orientations[orientation]
 }
+
 function getOrientationTransformOrigin(orientation) {
-    switch (orientation) {
-    case 5:
-        return 'top left';
-    case 6:
-        return 'bottom left';
-    case 7:
-        return 'bottom right'
-    case 8:
-        return 'top right';
-    }
+    return origins[orientation]
 }
 
 function exif2css(orientation) {
-    const transform = getOrientationTransform(orientation)
-    const transformOrigin = getOrientationTransformOrigin(orientation)
+    var transform = getOrientationTransform(orientation)
+    var transformOrigin = getOrientationTransformOrigin(orientation)
 
-    const css = {}
+    var css = {}
     if (transform) {
         css.transform = transform
     }
