@@ -25,6 +25,14 @@ module.exports = {
                 assert(res.transforms.rotateY === 180)
             },
         },
+        transformStrings: {
+            'rotateY === "rotateY(180deg)"': () => {
+                const res = exif2css(2)
+                assert(res.transforms !== undefined)
+                assert('rotateY' in res.transforms)
+                assert(res.transformStrings.rotateY === 'rotateY(180deg)')
+            },
+        },
     },
     '3': {
         'transform: rotate(180deg)': () => {
@@ -37,6 +45,14 @@ module.exports = {
                 assert(res.transforms !== undefined)
                 assert('rotate' in res.transforms)
                 assert(res.transforms.rotate === 180)
+            },
+        },
+        transformStrings: {
+            'rotate === "rotate(180deg)"': () => {
+                const res = exif2css(3)
+                assert(res.transforms !== undefined)
+                assert('rotate' in res.transforms)
+                assert(res.transformStrings.rotate === 'rotate(180deg)')
             },
         },
     },
@@ -57,6 +73,20 @@ module.exports = {
                 assert(res.transforms !== undefined)
                 assert('rotateY' in res.transforms)
                 assert(res.transforms.rotateY === 180)
+            },
+        },
+        transformStrings: {
+            'rotate === "rotate(180deg)"': () => {
+                const res = exif2css(4)
+                assert(res.transforms !== undefined)
+                assert('rotate' in res.transforms)
+                assert(res.transformStrings.rotate === 'rotate(180deg)')
+            },
+            'rotateY === "rotateY(180deg)"': () => {
+                const res = exif2css(4)
+                assert(res.transforms !== undefined)
+                assert('rotateY' in res.transforms)
+                assert(res.transformStrings.rotateY === 'rotateY(180deg)')
             },
         },
     },
@@ -83,6 +113,20 @@ module.exports = {
                 assert(res.transforms.rotateY === 180)
             },
         },
+        transformStrings: {
+            'rotate === "rotate(270deg)"': () => {
+                const res = exif2css(5)
+                assert(res.transforms !== undefined)
+                assert('rotate' in res.transforms)
+                assert(res.transformStrings.rotate === 'rotate(270deg)')
+            },
+            'rotateY === "rotateY(180deg)"': () => {
+                const res = exif2css(5)
+                assert(res.transforms !== undefined)
+                assert('rotateY' in res.transforms)
+                assert(res.transformStrings.rotateY === 'rotateY(180deg)')
+            },
+        },
     },
     '6': {
         'transform: translateY(-100%) rotate(90deg)': () => {
@@ -105,6 +149,20 @@ module.exports = {
                 assert(res.transforms !== undefined)
                 assert('rotate' in res.transforms)
                 assert(res.transforms.rotate === 90)
+            },
+        },
+        transformStrings: {
+            'translateY === "translateY(-100%)"': () => {
+                const res = exif2css(6)
+                assert(res.transforms !== undefined)
+                assert('translateY' in res.transforms)
+                assert(res.transformStrings.translateY === 'translateY(-100%)')
+            },
+            'rotate === "rotate(90deg)"': () => {
+                const res = exif2css(6)
+                assert(res.transforms !== undefined)
+                assert('rotate' in res.transforms)
+                assert(res.transformStrings.rotate === 'rotate(90deg)')
             },
         },
     },
@@ -143,6 +201,32 @@ module.exports = {
                 assert(res.transforms.rotateY === 180)
             },
         },
+        transformStrings: {
+            'translateY === "translateY(-100%)"': () => {
+                const res = exif2css(7)
+                assert(res.transforms !== undefined)
+                assert('translateY' in res.transforms)
+                assert(res.transformStrings.translateY === 'translateY(-100%)')
+            },
+            'translateX === "translateX(-100%)"': () => {
+                const res = exif2css(7)
+                assert(res.transforms !== undefined)
+                assert('translateX' in res.transforms)
+                assert(res.transformStrings.translateX === 'translateX(-100%)')
+            },
+            'rotate === "rotate(90deg)"': () => {
+                const res = exif2css(7)
+                assert(res.transforms !== undefined)
+                assert('rotate' in res.transforms)
+                assert(res.transformStrings.rotate === 'rotate(90deg)')
+            },
+            'rotateY === "rotateY(180deg)"': () => {
+                const res = exif2css(7)
+                assert(res.transforms !== undefined)
+                assert('rotateY' in res.transforms)
+                assert(res.transformStrings.rotateY === 'rotateY(180deg)')
+            },
+        },
     },
     '8': {
         'transform: translateX(-100%) rotate(270deg)': () => {
@@ -165,6 +249,20 @@ module.exports = {
                 assert(res.transforms !== undefined)
                 assert('rotate' in res.transforms)
                 assert(res.transforms.rotate === 270)
+            },
+        },
+        transformStrings: {
+            'translateX === "translateX(-100%)"': () => {
+                const res = exif2css(8)
+                assert(res.transforms !== undefined)
+                assert('translateX' in res.transforms)
+                assert(res.transformStrings.translateX === 'translateX(-100%)')
+            },
+            'rotate === "rotate(270deg)"': () => {
+                const res = exif2css(8)
+                assert(res.transforms !== undefined)
+                assert('rotate' in res.transforms)
+                assert(res.transformStrings.rotate === 'rotate(270deg)')
             },
         },
     },

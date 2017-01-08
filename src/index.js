@@ -72,6 +72,18 @@ function expandTransform(transforms) {
     return a.length ? a.join(' ') : null
 }
 
+
+function expandTransformStrings(transforms) {
+    var o = {}
+    var expanded = false
+    for (var prop in transforms) {
+        if (!expanded) expanded = true
+        var ep = propMap[prop]
+        o[ep] = ep + '(' + getValue(prop, transforms[prop]) + ')'
+    }
+    return expanded ? o : null
+}
+
 function exif2css(orientation) {
     var s = String(orientation)
     var transforms = transformsMap[s]
@@ -79,6 +91,7 @@ function exif2css(orientation) {
     var transform = expandTransform(transforms)
     var transformOrigin = transformOriginMap[s]
     var allTransforms = expandTransforms(transforms)
+    var allTransformStrings = expandTransformStrings(transforms)
 
     var css = {}
     if (transform) {
@@ -89,6 +102,9 @@ function exif2css(orientation) {
     }
     if (allTransforms) {
         css.transforms = allTransforms
+    }
+    if (allTransformStrings) {
+        css.transformStrings = allTransformStrings
     }
     return css
 }
