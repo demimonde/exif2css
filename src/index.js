@@ -43,14 +43,6 @@ var transformOriginMap = {
     '8': 'top right',
 }
 
-function getOrientationTransform(orientation) {
-    return orientations[orientation]
-}
-
-function getOrientationTransformOrigin(orientation) {
-    return origins[orientation]
-}
-
 function expandTransforms(transforms) {
     var o = {}
     var expanded = false
