@@ -10,6 +10,37 @@ var orientations = [
     'translateX(-100%) rotate(270deg)'
 ]
 
+var transformsMap = {
+    '2': {
+        rotateY: 180,
+    },
+    '3': {
+        rotate: 180,
+    },
+    '4': {
+        rotate: 180,
+        rotateY: 180,
+    },
+    '5': {
+        rotate: 270,
+        rotateY: 180,
+    },
+    '6': {
+        translateY: -1,
+        rotate: 90,
+    },
+    '7': {
+        translateY: -1,
+        translateX: -1,
+        rotate: 90,
+        rotateY: 180,
+    },
+    '8': {
+        translateX: -1,
+        rotate: 270,
+    },
+}
+
 var origins = new Array(5)
 origins.push('top left', 'bottom left', 'bottom right', 'top right')
 
@@ -24,6 +55,7 @@ function getOrientationTransformOrigin(orientation) {
 function exif2css(orientation) {
     var transform = getOrientationTransform(orientation)
     var transformOrigin = getOrientationTransformOrigin(orientation)
+    var transforms = transformsMap[String(orientation)]
 
     var css = {}
     if (transform) {
@@ -31,6 +63,9 @@ function exif2css(orientation) {
     }
     if (transformOrigin) {
         css['transform-origin'] = transformOrigin
+    }
+    if (transforms) {
+        css.transforms = transforms
     }
     return css
 }
