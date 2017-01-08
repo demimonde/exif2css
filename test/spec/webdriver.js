@@ -79,8 +79,8 @@ function test(orientation, expectedMismatch) {
 
 module.exports = {
     before: {
-        'create bundle': () => {
-            return new Promise((resolve, reject) => {
+        'create bundle': () =>
+            new Promise((resolve, reject) => {
                 const b = browserify([ srcPath ], { standalone: 'exif2css' })
                 const stream = b.bundle((err, buf) =>
                     err ? reject(err) : resolve(String(buf))
@@ -88,52 +88,36 @@ module.exports = {
             })
                 .then(res => {
                     bundle = res
-                })
-        },
+                }),
+
         'init webdriver': () => {
             driver = new webdriver.Builder()
                 .withCapabilities(customPhantom)
                 .build()
+
             return driver
         },
-        'go to the index page': () => {
-            return driver.get(`file://${indexPath}`)
-        },
-        'export source code to browser': () => {
-            return driver.executeScript(bundle)
-        },
+        'go to the index page': () =>
+            driver.get(`file://${indexPath}`),
+
+        'export source code to browser': () =>
+            driver.executeScript(bundle),
     },
     spec: {
-        'should return empty transform for non-orientation': () => {
-            return driver.executeScript('return exif2css("not-orientation")')
+        'should return empty transform for non-orientation': () =>
+            driver.executeScript('return exif2css("not-orientation")')
                 .then(res =>
                     assert(JSON.stringify({}) === JSON.stringify(res))
-                )
-        },
-        'should transform 1 correctly': () => {
-            return test(1, 0)
-        },
-        'should transform 2 correctly': () => {
-            return test(2, 1)
-        },
-        'should transform 3 correctly': () => {
-            return test(3, 2)
-        },
-        'should transform 4 correctly': () => {
-            return test(4, 2)
-        },
-        'should transform 5 correctly': () => {
-            return test(5, 1)
-        },
-        'should transform 6 correctly': () => {
-            return test(6, 1)
-        },
-        'should transform 7 correctly': () => {
-            return test(7, 1)
-        },
-        'should transform 8 correctly': () => {
-            return test(8, 1)
-        },
+                ),
+
+        'should transform 1 correctly': () => test(1, 0),
+        'should transform 2 correctly': () => test(2, 1),
+        'should transform 3 correctly': () => test(3, 2),
+        'should transform 4 correctly': () => test(4, 2),
+        'should transform 5 correctly': () => test(5, 1),
+        'should transform 6 correctly': () => test(6, 1),
+        'should transform 7 correctly': () => test(7, 1),
+        'should transform 8 correctly': () => test(8, 1),
     },
     after: {
         'quit driver': () => driver.quit()
