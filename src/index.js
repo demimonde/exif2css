@@ -1,48 +1,47 @@
-var orientations = [
-    undefined,
-    undefined,
-    'rotateY(180deg)',
-    'rotate(180deg)',
-    'rotate(180deg) rotateY(180deg)',
-    'rotate(270deg) rotateY(180deg)',
-    'translateY(-100%) rotate(90deg)',
-    'translateY(-100%) translateX(-100%) rotate(90deg) rotateY(180deg)',
-    'translateX(-100%) rotate(270deg)'
-]
+var propMap = {
+    r: 'rotate',
+    ry: 'rotateY',
+    t: 'translateX',
+    ty: 'translateY',
+}
 
 var transformsMap = {
     '2': {
-        rotateY: 180,
+        ry: 180,
     },
     '3': {
-        rotate: 180,
+        r: 180,
     },
     '4': {
-        rotate: 180,
-        rotateY: 180,
+        r: 180,
+        ry: 180,
     },
     '5': {
-        rotate: 270,
-        rotateY: 180,
+        r: 270,
+        ry: 180,
     },
     '6': {
-        translateY: -1,
-        rotate: 90,
+        ty: -1,
+        r: 90,
     },
     '7': {
-        translateY: -1,
-        translateX: -1,
-        rotate: 90,
-        rotateY: 180,
+        ty: -1,
+        t: -1,
+        r: 90,
+        ry: 180,
     },
     '8': {
-        translateX: -1,
-        rotate: 270,
+        t: -1,
+        r: 270,
     },
 }
 
-var origins = new Array(5)
-origins.push('top left', 'bottom left', 'bottom right', 'top right')
+var transformOriginMap = {
+    '5': 'top left',
+    '6': 'bottom left',
+    '7': 'bottom right',
+    '8': 'top right',
+}
 
 function getOrientationTransform(orientation) {
     return orientations[orientation]
@@ -52,10 +51,42 @@ function getOrientationTransformOrigin(orientation) {
     return origins[orientation]
 }
 
+function expandTransforms(transforms) {
+    var o = {}
+    var expanded = false
+    for (var prop in transforms) {
+        if (!expanded) expanded = true
+        var ep = propMap[prop]
+        o[ep] = transforms[prop]
+    }
+    return expanded ? o : null
+}
+
+function getValue(prop, value) {
+    if (prop === 'r' || prop === 'ry') {
+        return value + 'deg'
+    }
+    if (prop === 't' || prop === 'ty') {
+        return value * 100 + '%'
+    }
+}
+
+function expandTransform(transforms) {
+    var a = []
+    for (var prop in transforms) {
+        var ep = propMap[prop]
+        a.push(ep + '(' + getValue(prop, transforms[prop]) + ')')
+    }
+    return a.length ? a.join(' ') : null
+}
+
 function exif2css(orientation) {
-    var transform = getOrientationTransform(orientation)
-    var transformOrigin = getOrientationTransformOrigin(orientation)
-    var transforms = transformsMap[String(orientation)]
+    var s = String(orientation)
+    var transforms = transformsMap[s]
+
+    var transform = expandTransform(transforms)
+    var transformOrigin = transformOriginMap[s]
+    var allTransforms = expandTransforms(transforms)
 
     var css = {}
     if (transform) {
@@ -64,8 +95,8 @@ function exif2css(orientation) {
     if (transformOrigin) {
         css['transform-origin'] = transformOrigin
     }
-    if (transforms) {
-        css.transforms = transforms
+    if (allTransforms) {
+        css.transforms = allTransforms
     }
     return css
 }
