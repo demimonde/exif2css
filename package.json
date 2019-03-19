@@ -41,11 +41,11 @@
   },
   "homepage": "https://github.com/demimonde/exif2css#readme",
   "devDependencies": {
-    "alamode": "1.7.3",
-    "node-resemble-js": "^0.2.0",
-    "documentary": "1.21.1",
+    "alamode": "1.8.6",
+    "documentary": "1.22.0",
     "eslint-config-artdeco": "1.0.1",
+    "node-resemble-js": "0.2.0",
     "yarn-s": "1.1.0",
-    "zoroaster": "3.6.6"
+    "zoroaster": "3.9.0"
   }
 }
