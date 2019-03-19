@@ -35,12 +35,9 @@ import exif2css from 'exif2css'
 
 ## `exif2css(`<br/>&nbsp;&nbsp;`orientation: number,`<br/>`): { transform: string, transform-origin?: string, transforms: Object }`
 
-Converts an integer representing EXIF orientation into required CSS with _transfrom_ and
-optionally _transform-origin_ properties. It is your job to use them as needed, possibly prefixing
-the rules with browser-specific tags (e.g., `-webkit-transform` and `-webkit-transform-origin`).
+Converts an integer representing EXIF orientation into required CSS with _transfrom_ and optionally _transform-origin_ properties. They can then be used as needed, possibly prefixing the rules with browser-specific tags (e.g., `-webkit-transform` and `-webkit-transform-origin`).
 
-One known issue is that with orientations > 4, the transformed image will have different dimensions from
-its box, so that whitespace might appear on the right and at the bottom of the image.
+One known issue is that with orientations > 4, the transformed image will have different dimensions from its box, so that whitespace might appear on the right and at the bottom of the image.
 
 ```js
 import exif2css from 'exif2css'
@@ -108,8 +105,7 @@ Orientation: 8
 
 ## Usage
 
-You can either require this module in Node.js, or download the compiled file from _dist_ folder
-and insert it on your webpage.
+The module can be either required in _Node.JS_, or downloaded as the compiled file from the _dist_ folder and inserted on the webpage.
 
 ### As a _Node_ module:
 
@@ -145,9 +141,9 @@ const css = exif2css(6)
 
 ## Testing
 
-The module has been tested with _selenium-webdriver_ and _PhantomJS_ by inserting images with
-specified orientation, applying generated styles from `exif2css`, taking screenshots and comparing
-them against the expected image, therefore everything seems to be working properly.
+The module has been automatically tested in Chrome by inserting pre-compiled images with set orientation, applying generated styles from `exif2css`, taking screenshots and comparing them against the expected image, therefore everything works properly.
+
+![Testing exif2css diff](artifacts/1_diff.png)
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true"></a></p>
 
