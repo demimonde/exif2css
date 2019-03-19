@@ -22,7 +22,7 @@ One known issue is that with orientations > 4, the transformed image will have d
 its box, so that whitespace might appear on the right and at the bottom of the image.
 
 %EXAMPLE: example/example.js, ../src => exif2css%
-%FORK example example/example%
+%FORK-js example example/example%
 
 %~%
 

@@ -43,88 +43,65 @@ One known issue is that with orientations > 4, the transformed image will have d
 its box, so that whitespace might appear on the right and at the bottom of the image.
 
 ```js
-// exif2css('not-an-exif-orientation')
+import exif2css from 'exif2css'
+
+['not-an-exif-orientation', 1,2,3,4,5,6,7,8]
+  .forEach((i) => {
+    console.log('Orientation: %s', i)
+    const result = exif2css(i)
+    console.log(result)
+    console.log()
+  })
+```
+```js
+Orientation: not-an-exif-orientation
 {}
 
-// exif2css(1)
+Orientation: 1
 {}
 
-// exif2css(2)
-{
-    transform: 'rotateY(180deg)',
+Orientation: 2
+{ transform: 'rotateY(180deg)',
+  transforms: { rotateY: 180 },
+  transformStrings: { rotateY: 'rotateY(180deg)' } }
 
-    transforms: {
-        rotateY: 180,
-    },
-}
+Orientation: 3
+{ transform: 'rotate(180deg)',
+  transforms: { rotate: 180 },
+  transformStrings: { rotate: 'rotate(180deg)' } }
 
-// exif2css(3)
-{
-    transform: 'rotate(180deg)',
+Orientation: 4
+{ transform: 'rotate(180deg) rotateY(180deg)',
+  transforms: { rotate: 180, rotateY: 180 },
+  transformStrings: { rotate: 'rotate(180deg)', rotateY: 'rotateY(180deg)' } }
 
-    transforms: {
-        rotate: 180,
-    },
-}
+Orientation: 5
+{ transform: 'rotate(270deg) rotateY(180deg)',
+  'transform-origin': 'top left',
+  transforms: { rotate: 270, rotateY: 180 },
+  transformStrings: { rotate: 'rotate(270deg)', rotateY: 'rotateY(180deg)' } }
 
-// exif2css(4)
-{
-    transform: 'rotate(180deg) rotateY(180deg)',
+Orientation: 6
+{ transform: 'translateY(-100%) rotate(90deg)',
+  'transform-origin': 'bottom left',
+  transforms: { translateY: -1, rotate: 90 },
+  transformStrings: { translateY: 'translateY(-100%)', rotate: 'rotate(90deg)' } }
 
-    transforms: {
-        rotate: 180,
-        rotateY: 180,
-    },
-}
+Orientation: 7
+{ transform: 'translateY(-100%) translateX(-100%) rotate(90deg) rotateY(180deg)',
+  'transform-origin': 'bottom right',
+  transforms: { translateY: -1, translateX: -1, rotate: 90, rotateY: 180 },
+  transformStrings: 
+   { translateY: 'translateY(-100%)',
+     translateX: 'translateX(-100%)',
+     rotate: 'rotate(90deg)',
+     rotateY: 'rotateY(180deg)' } }
 
-// exif2css(5)
-{
-    transform: 'rotate(270deg) rotateY(180deg)',
-    'transform-origin': 'top left',
-
-    transforms: {
-        rotate: 270,
-        rotateY: 180,
-    },
-}
-
-// exif2css(6)
-{
-    transform: 'translateY(-100%) rotate(90deg)',
-    'transform-origin': 'bottom left',
-
-    transforms: {
-        translateY: -1,
-        rotate: 90,
-    },
-}
-
-// exif2css(7)
-{
-    transform: 'translateY(-100%) translateX(-100%) rotate(90deg) rotateY(180deg)',
-    'transform-origin': 'bottom right',
-
-    transforms: {
-        translateY: -1,
-        translateX: -1,
-        rotate: 90,
-        rotateY: 180,
-    },
-}
-
-// exif2css(8)
-{
-    transform: 'translateX(-100%) rotate(270deg)',
-    'transform-origin': 'top right',
-
-    transforms: {
-        translateX: -1,
-        rotate: 270,
-    },
-}
-```
-```
-
+Orientation: 8
+{ transform: 'translateX(-100%) rotate(270deg)',
+  'transform-origin': 'top right',
+  transforms: { translateX: -1, rotate: 270 },
+  transformStrings: { translateX: 'translateX(-100%)', rotate: 'rotate(270deg)' } }
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
