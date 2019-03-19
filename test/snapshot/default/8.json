@@ -1,0 +1,12 @@
+{
+  "transform": "translateX(-100%) rotate(270deg)",
+  "transform-origin": "top right",
+  "transforms": {
+    "translateX": -1,
+    "rotate": 270
+  },
+  "transformStrings": {
+    "translateX": "translateX(-100%)",
+    "rotate": "rotate(270deg)"
+  }
+}

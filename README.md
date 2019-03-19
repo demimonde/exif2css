@@ -14,7 +14,7 @@ yarn add -E exif2css
 
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-- [`exif2css(orientation: number): { transform: string, transforms: Object }`](#exif2cssorientation-number--transform-string-transforms-object-)
+- [`exif2css(orientation: number): { transform: string, transform-origin?: string, transforms: Object }`](#exif2cssorientation-number--transform-string-transform-origin-string-transforms-object-)
 - [Usage](#usage)
   * [As a _Node_ module:](#as-a-_node_-module)
   * [As a script:](#as-a-script)
@@ -33,7 +33,7 @@ import exif2css from 'exif2css'
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/1.svg?sanitize=true"></a></p>
 
-## `exif2css(`<br/>&nbsp;&nbsp;`orientation: number,`<br/>`): { transform: string, transforms: Object }`
+## `exif2css(`<br/>&nbsp;&nbsp;`orientation: number,`<br/>`): { transform: string, transform-origin?: string, transforms: Object }`
 
 Converts an integer representing EXIF orientation into required CSS with _transfrom_ and
 optionally _transform-origin_ properties. It is your job to use them as needed, possibly prefixing

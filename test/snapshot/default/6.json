@@ -1,0 +1,12 @@
+{
+  "transform": "translateY(-100%) rotate(90deg)",
+  "transform-origin": "bottom left",
+  "transforms": {
+    "translateY": -1,
+    "rotate": 90
+  },
+  "transformStrings": {
+    "translateY": "translateY(-100%)",
+    "rotate": "rotate(90deg)"
+  }
+}

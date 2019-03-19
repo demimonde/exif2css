@@ -1,0 +1,11 @@
+{
+  "transform": "rotate(180deg) rotateY(180deg)",
+  "transforms": {
+    "rotate": 180,
+    "rotateY": 180
+  },
+  "transformStrings": {
+    "rotate": "rotate(180deg)",
+    "rotateY": "rotateY(180deg)"
+  }
+}

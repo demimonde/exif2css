@@ -8,7 +8,7 @@ import exif2css from 'exif2css'
 
 %~%
 
-```## exif2css => { transform: string, transforms: Object }
+```## exif2css => { transform: string, transform-origin?: string, transforms: Object }
 [
   ["orientation", "number"]
 ]

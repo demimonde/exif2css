@@ -1,22 +1,34 @@
-import { equal, ok } from 'zoroaster/assert'
-import Context from '../context'
+import { deepEqual } from 'zoroaster/assert'
 import exif2css from '../../src'
 
-/** @type {Object.<string, (c: Context)>} */
-const T = {
-  context: Context,
-  'is a function'() {
-    equal(typeof exif2css, 'function')
+export default {
+  'returns empty object for non-exif value'() {
+    const res = exif2css('non-exif')
+    deepEqual(res, {})
   },
-  async 'calls package without error'() {
-    await exif2css()
+  1() {
+    const res = exif2css(1)
+    deepEqual(res, {})
   },
-  async 'gets a link to the fixture'({ FIXTURE }) {
-    const res = await exif2css({
-      text: FIXTURE,
-    })
-    ok(res, FIXTURE)
+  '2'() {
+    return exif2css(2)
+  },
+  '3'() {
+    return exif2css(3)
+  },
+  '4'() {
+    return exif2css(4)
+  },
+  '5'() {
+    return exif2css(5)
+  },
+  '6'() {
+    return exif2css(6)
+  },
+  '7'() {
+    return exif2css(7)
+  },
+  '8'() {
+    return exif2css(8)
   },
 }
-
-export default T

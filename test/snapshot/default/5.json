@@ -1,0 +1,12 @@
+{
+  "transform": "rotate(270deg) rotateY(180deg)",
+  "transform-origin": "top left",
+  "transforms": {
+    "rotate": 270,
+    "rotateY": 180
+  },
+  "transformStrings": {
+    "rotate": "rotate(270deg)",
+    "rotateY": "rotateY(180deg)"
+  }
+}

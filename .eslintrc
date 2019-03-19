@@ -1,3 +1,6 @@
 {
-  "extends": "artdeco"
+  "extends": "artdeco",
+  "rules": {
+    "quote-props": "off"
+  }
 }
