@@ -21,6 +21,8 @@ One known issue is that with orientations > 4, the transformed image will have d
 %EXAMPLE: example/example.js, ../src => exif2css%
 %FORK-js example example/example%
 
+%TYPEDEF types/index.xml%
+
 %~%
 
 ## Usage

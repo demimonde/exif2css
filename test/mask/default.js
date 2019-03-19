@@ -24,6 +24,8 @@ export default makeTestSuite('test/result', {
    * @param {Context} c
    */
   async getResults(input, { Page, evaluate, takeScreenshot }, { url }) {
+    console.log(url)
+    // await new Promise(r => setTimeout(r, 1000000))
     await Page.navigate({ url: `${url}/${input}` })
     await Page.loadEventFired()
     const value = await evaluate('window.result')

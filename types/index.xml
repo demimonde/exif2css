@@ -1,10 +1,16 @@
 <types>
-  <type name="Config" desc="Options for the program.">
-    <prop boolean name="shouldRun" default="true">
-      A boolean option.
+  <type name="Exif2CssReturn" desc="The return type of the function.">
+    <prop opt string name="transform">
+      The complete CSS `transform` rule that contains all transforms.
     </prop>
-    <prop string name="text">
-      A text to return.
+    <prop opt type="('top left'|'top right'|'bottom left'|'bottom right')" name="transform-origin">
+      The transform origin CSS rule for orientations >= 5.
+    </prop>
+    <prop opt type="{translateY: number, translateX: number, rotate: number, rotateY: number}" name="transforms">
+      The raw transforms as numbers, where translates are either `-1` or `1` and rotations are either `90`, `180` and `270`.
+    </prop>
+    <prop opt type="{translateY: string, translateX: string, rotate: string, rotateY: string}" name="transformStrings">
+      The transforms split by individual rules that can be applied in the browser.
     </prop>
   </type>
 </types>

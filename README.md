@@ -15,6 +15,7 @@ yarn add -E exif2css
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
 - [`exif2css(orientation: number): { transform: string, transform-origin?: string, transforms: Object }`](#exif2cssorientation-number--transform-string-transform-origin-string-transforms-object-)
+  * [`Exif2CssReturn`](#type-exif2cssreturn)
 - [Usage](#usage)
   * [As a _Node_ module:](#as-a-_node_-module)
   * [As a script:](#as-a-script)
@@ -100,6 +101,15 @@ Orientation: 8
   transforms: { translateX: -1, rotate: 270 },
   transformStrings: { translateX: 'translateX(-100%)', rotate: 'rotate(270deg)' } }
 ```
+
+__<a name="type-exif2cssreturn">`Exif2CssReturn`</a>__: The return type of the function.
+
+|       Name       |                                    Type                                     |                                                      Description                                                       |
+| ---------------- | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| transform        | _string_                                                                    | The complete CSS `transform` rule that contains all transforms.                                                        |
+| transform-origin | _('top left'\|'top right'\|'bottom left'\|'bottom right')_                  | The transform origin CSS rule for orientations >= 5.                                                                   |
+| transforms       | _{translateY: number, translateX: number, rotate: number, rotateY: number}_ | The raw transforms as numbers, where translates are either `-1` or `1` and rotations are either `90`, `180` and `270`. |
+| transformStrings | _{translateY: string, translateX: string, rotate: string, rotateY: string}_ | The transforms split by individual rules that can be applied in the browser.                                           |
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>
 

@@ -83,6 +83,11 @@ function expandTransformStrings(transforms) {
   return expanded ? o : null
 }
 
+/**
+ * Takes the input EXIF orientation and returns the CSS rules needed to display the image correctly in the browser.
+ * @param {number} orientation The EXIF orientation.
+ * @returns {Exif2CssReturn} An object with `transform`, `transform-origin` (not shown in JSDoc because of hyphen), `transforms` and `transformStrings` properties.
+ */
 function exif2css(orientation) {
   const s = `${orientation}`
   const transforms = transformsMap[s]
@@ -107,5 +112,14 @@ function exif2css(orientation) {
   }
   return css
 }
+
+/* documentary types/index.xml */
+/**
+ * @typedef {Object} Exif2CssReturn The return type of the function.
+ * @prop {string} [transform] The complete CSS `transform` rule that contains all transforms.
+ * @prop {('top left'|'top right'|'bottom left'|'bottom right')} [transform-origin] The transform origin CSS rule for orientations >= 5.
+ * @prop {{translateY: number, translateX: number, rotate: number, rotateY: number}} [transforms] The raw transforms as numbers, where translates are either `-1` or `1` and rotations are either `90`, `180` and `270`.
+ * @prop {{translateY: string, translateX: string, rotate: string, rotateY: string}} [transformStrings] The transforms split by individual rules that can be applied in the browser.
+ */
 
 export default exif2css

@@ -52,7 +52,8 @@ export default class RemoteChrome {
     if (!json) {
       return res.result
     }
-    const { value } = res.result
+    const { value, type } = res.result
+    if (type == 'undefined') return undefined
     const val = JSON.parse(value)
     return val
   }
