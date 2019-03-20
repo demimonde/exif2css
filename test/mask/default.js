@@ -1,4 +1,4 @@
-import makeTestSuite from 'zoroaster/node_modules/@zoroaster/mask'
+import makeTestSuite from '@zoroaster/mask'
 import { ok } from 'assert'
 import resemble from 'node-resemble-js'
 import { readBuffer } from '@wrote/read'

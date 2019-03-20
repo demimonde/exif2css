@@ -297,10 +297,10 @@
     mismatch "1.0.3"
     spawncommand "2.1.1"
 
-"@zoroaster/mask@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@zoroaster/mask/-/mask-1.2.0.tgz#a489b983c07a0d43dd6b44765605dde094aa7357"
-  integrity sha512-+nHi49XiQFBuSaCOC0qEYgmumJMjQZpcSq/zBZqfTy3S0tnMuE8mfVkDPn2NSm5athg5FxlztI67yFti2+mZXQ==
+"@zoroaster/mask@1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@zoroaster/mask/-/mask-1.2.1.tgz#988f7b25cb58dfae1d630ce7e0aa30938387413f"
+  integrity sha512-DuloW1N+msxvh5Pf6YqYsi7XjierASGDHnfQgKd7zcM5Bbp4WC+3ImE/eOPUD7pKbeT13j6JrvvmVpXY8XBAkA==
   dependencies:
     "@zoroaster/fork" "1.2.0"
     assert-diff "2.0.3"
@@ -338,26 +338,6 @@ alamode@1.8.4:
     argufy "1.3.2"
     catchment "3.2.2"
     erte "1.1.6"
-    pirates "4.0.1"
-    restream "3.5.0"
-    source-map "0.7.3"
-    usually "1.1.0"
-    which-stream "1.0.1"
-
-alamode@1.8.5:
-  version "1.8.5"
-  resolved "https://registry.yarnpkg.com/alamode/-/alamode-1.8.5.tgz#a0eef08d39a9bc513c5e13859a5f8b93e6fcba9c"
-  integrity sha512-eVjJstom2uP/7s9IQi365TdCU9lQuKgIudZD1N9Tw89mrbeXwQPxY/fsyBbk2/ItCvUGgjB0s3aeNanKJmDfoQ==
-  dependencies:
-    "@a-la/export" "1.3.1"
-    "@a-la/import" "1.7.0"
-    "@a-la/jsx" "1.4.4"
-    "@a-la/markers" "1.0.3"
-    "@wrote/clone" "1.1.0"
-    "@wrote/wrote" "1.2.1"
-    argufy "1.3.2"
-    catchment "3.2.2"
-    erte "1.1.7"
     pirates "4.0.1"
     restream "3.5.0"
     source-map "0.7.3"
@@ -1593,23 +1573,21 @@ ylru@^1.2.0:
   resolved "https://registry.yarnpkg.com/ylru/-/ylru-1.2.1.tgz#f576b63341547989c1de7ba288760923b27fe84f"
   integrity sha512-faQrqNMzcPCHGVC2aaOINk13K+aaBDUPjGWl0teOXywElLjyVAB6Oe2jj62jHYtwsU49jXhScYbvPENK+6zAvQ==
 
-zoroaster@3.9.0:
-  version "3.9.0"
-  resolved "https://registry.yarnpkg.com/zoroaster/-/zoroaster-3.9.0.tgz#ab95d49b32eee48f8a283977ba79d2f2c0fedd56"
-  integrity sha512-tEgGmugHi4QCNmRGQdNuuzlmeHtmrk99IUo8pn+u2fr8p/z6p/O1EVdepe2ryHsTVIKErBmMzg14JW/cqXATaA==
+zoroaster@3.9.1:
+  version "3.9.1"
+  resolved "https://registry.yarnpkg.com/zoroaster/-/zoroaster-3.9.1.tgz#72ddce70dd745acd49bc96a461ad4906b99d9c31"
+  integrity sha512-XsE75qMqY1GEjHZCLSzs2V17QYCYr1PXsAYzuHbbnkLjilmiENPcse5ZoHBlLWqSDfQxHrEm2lmWonfKOOopNg==
   dependencies:
     "@artdeco/clean-stack" "1.0.1"
     "@wrote/exists" "1.0.1"
-    "@zoroaster/mask" "1.2.0"
+    "@zoroaster/mask" "1.2.1"
     "@zoroaster/reducer" "1.1.0"
-    alamode "1.8.5"
+    alamode "1.8.6"
     argufy "1.3.2"
     assert-diff "2.0.3"
     assert-throws "3.1.1"
     catchment "3.2.2"
     erte "1.1.7"
-    forkfeed "1.0.0"
-    frame-of-mind "1.0.0"
     makepromise "3.0.2"
     mismatch "1.0.3"
     snapshot-context "2.1.1"
