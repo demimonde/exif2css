@@ -52,6 +52,13 @@
   resolved "https://registry.yarnpkg.com/@artdeco/clean-stack/-/clean-stack-1.0.1.tgz#7e4d3bb1b0ac62173b00e4bba7091f7847cdb088"
   integrity sha512-ZSavD8NpWA1/1SRCKrx8LZ5WfbKS1kRUIFOERJvR1jXqCAcbM3xWSP2VdCKEh4lCwWghSWQkotbpK6n+o1Y/xQ==
 
+"@contexts/chrome@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@contexts/chrome/-/chrome-1.0.0.tgz#d0c39e089b9200fca364629cb6d259fb4ad02dd9"
+  integrity sha512-afTs6OPQjWMxFhNzZpMqQVqpCkQeDmXM3R4/bumm/RtHdihiqvLibKs+GYaQM6n57Y885L9CkwGCIXoR6lN3TQ==
+  dependencies:
+    chrome-remote-interface "0.27.1"
+
 "@depack/render@1.1.4":
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@depack/render/-/render-1.1.4.tgz#8586d55f60502c8bfae7bbb0bd0a0513670fbcbd"

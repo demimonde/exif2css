@@ -24,13 +24,13 @@ export default class IdioContext {
           <body>
             <img src={`${ctx.path}.jpg`} />
             {!testBuild && <script type="module" dangerouslySetInnerHTML={{
-              __html: `import exif2css from '/${this.path}/'`,
+              __html: `import exif2css from '/src/'
+window.exif2css = exif2css`,
             }}>
             </script>}
             {testBuild && <script src="exif2css.js"></script>}
             <script type={testBuild ? '' : 'module'} dangerouslySetInnerHTML={{
-              __html: `
-const img = document.querySelector('img')
+              __html: `const img = document.querySelector('img')
 const css = exif2css(${ctx.path.replace('/', '')})
 
 if (css.transform) {
@@ -42,7 +42,7 @@ if (css['transform-origin']) {
 window.result = css`,
             }}></script>
           </body>
-        </html>, { addDoctype: true })
+        </html>, { addDoctype: true, pretty: true })
       },
     }, { port: null })
     this.app = app

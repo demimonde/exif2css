@@ -4,8 +4,8 @@ import resemble from 'node-resemble-js'
 import { readBuffer } from '@wrote/read'
 import write from '@wrote/write'
 import { createWriteStream } from 'fs'
+import RemoteChrome from '@contexts/chrome'
 import Context from '../context'
-import RemoteChrome from '../context/RemoteChrome'
 
 const expectedPromise = readBuffer('test/fixture/expected.png')
 
@@ -23,10 +23,10 @@ export default makeTestSuite('test/result', {
    * @param {RemoteChrome} r
    * @param {Context} c
    */
-  async getResults(input, { Page, evaluate, takeScreenshot }, { url }) {
+  async getResults(input, { Page, navigate, evaluate, takeScreenshot }, { url }) {
     // console.log(url)
     // await new Promise(r => setTimeout(r, 1000000))
-    await Page.navigate({ url: `${url}/${input}` })
+    await navigate(`${url}/${input}`)
     await Page.loadEventFired()
     const value = await evaluate('window.result')
     const screenshot = await takeScreenshot('img')
