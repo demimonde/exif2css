@@ -10,11 +10,11 @@ import exif2css from 'exif2css'
 
 ```## exif2css => Exif2CssReturn
 [
-  ["orientation", "number"]
+  ["orientation", "(number|string)"]
 ]
 ```
 
-Converts an integer representing EXIF orientation into required CSS with _transfrom_ and optionally _transform-origin_ properties. They can then be used as needed, possibly prefixing the rules with browser-specific tags (e.g., `-webkit-transform` and `-webkit-transform-origin`).
+Converts an integer or a string representing EXIF orientation into required CSS with _transfrom_ and optionally _transform-origin_ properties. They can then be used as needed, possibly prefixing the rules with browser-specific tags (e.g., `-webkit-transform` and `-webkit-transform-origin`).
 
 One known issue is that with orientations > 4, the transformed image will have different dimensions from its box, so that whitespace might appear on the right and at the bottom of the image.
 

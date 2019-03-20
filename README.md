@@ -14,7 +14,7 @@ yarn add -E exif2css
 
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-- [`exif2css(orientation: number): Exif2CssReturn`](#exif2cssorientation-number-exif2cssreturn)
+- [`exif2css(orientation: (number|string)): Exif2CssReturn`](#exif2cssorientation-numberstring-exif2cssreturn)
   * [`Exif2CssReturn`](#type-exif2cssreturn)
 - [Usage](#usage)
   * [As Node Module](#as-node-module)
@@ -34,9 +34,9 @@ import exif2css from 'exif2css'
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/1.svg?sanitize=true"></a></p>
 
-## `exif2css(`<br/>&nbsp;&nbsp;`orientation: number,`<br/>`): Exif2CssReturn`
+## `exif2css(`<br/>&nbsp;&nbsp;`orientation: (number|string),`<br/>`): Exif2CssReturn`
 
-Converts an integer representing EXIF orientation into required CSS with _transfrom_ and optionally _transform-origin_ properties. They can then be used as needed, possibly prefixing the rules with browser-specific tags (e.g., `-webkit-transform` and `-webkit-transform-origin`).
+Converts an integer or a string representing EXIF orientation into required CSS with _transfrom_ and optionally _transform-origin_ properties. They can then be used as needed, possibly prefixing the rules with browser-specific tags (e.g., `-webkit-transform` and `-webkit-transform-origin`).
 
 One known issue is that with orientations > 4, the transformed image will have different dimensions from its box, so that whitespace might appear on the right and at the bottom of the image.
 
