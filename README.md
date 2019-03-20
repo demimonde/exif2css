@@ -117,9 +117,11 @@ __<a name="type-exif2cssreturn">`Exif2CssReturn`</a>__: The return type of the f
 
 The module can be either required in _Node.JS_, or downloaded as the compiled file from the _dist_ folder and inserted on the webpage.
 
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true" width="15"></a></p>
+
 ### As Node Module
 
-The package is published both as CommonJS module with the `main` field, or as a ES6 module with the `module` field. Node will automatically pick up the `main` version, whereas some bundles will be able to use the module.
+The package is published both as CommonJS module with the `main` field, and as a ES6 module with the `module` field. Node will automatically pick up the `main` version, whereas some bundles will be able to use the module.
 
 ```bash
 yarn add -E exif2css
@@ -132,6 +134,8 @@ const exif2css = require('exif2css')
 
 const css = exif2css(6)
 ```
+
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true" width="15"></a></p>
 
 ### As Script
 
@@ -154,7 +158,7 @@ _Exif2Css_ has been compiled with [_Depack_](https://github.com/dpck/depack) usi
 </script>
 ```
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/3.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/5.svg?sanitize=true"></a></p>
 
 ## Testing
 
@@ -162,7 +166,7 @@ The module has been automatically tested in Chrome by inserting pre-compiled ima
 
 ![Testing exif2css diff](artifacts/1_diff.png)
 
-<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/4.svg?sanitize=true"></a></p>
+<p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/6.svg?sanitize=true"></a></p>
 
 ## Copyright
 

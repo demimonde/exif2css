@@ -2,9 +2,11 @@
 
 The module can be either required in _Node.JS_, or downloaded as the compiled file from the _dist_ folder and inserted on the webpage.
 
+%~ width="15"%
+
 ### As Node Module
 
-The package is published both as CommonJS module with the `main` field, or as a ES6 module with the `module` field. Node will automatically pick up the `main` version, whereas some bundles will be able to use the module.
+The package is published both as CommonJS module with the `main` field, and as a ES6 module with the `module` field. Node will automatically pick up the `main` version, whereas some bundles will be able to use the module.
 
 ```bash
 yarn add -E exif2css
@@ -17,6 +19,8 @@ const exif2css = require('exif2css')
 
 const css = exif2css(6)
 ```
+
+%~ width="15"%
 
 ### As Script
 
