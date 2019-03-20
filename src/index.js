@@ -85,7 +85,7 @@ function expandTransformStrings(transforms) {
 
 /**
  * Takes the input EXIF orientation and returns the CSS rules needed to display the image correctly in the browser.
- * @param {number} orientation The EXIF orientation.
+ * @param {(number|string)} orientation The EXIF orientation.
  * @returns {Exif2CssReturn} An object with `transform`, `transform-origin` (not shown in JSDoc because of hyphen), `transforms` and `transformStrings` properties.
  */
 function exif2css(orientation) {
