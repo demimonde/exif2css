@@ -24,39 +24,3 @@ One known issue is that with orientations > 4, the transformed image will have d
 %TYPEDEF types/index.xml%
 
 %~%
-
-## Usage
-
-The module can be either required in _Node.JS_, or downloaded as the compiled file from the _dist_ folder and inserted on the webpage.
-
-### As a _Node_ module:
-
-```bash
-npm i exif2css --save
-```
-
-```js
-const exif2css = require('exif2css')
-const css = exif2css(6)
-```
-
-### As a script:
-
-```html
-<img src="some-image.jpg">
-<script src="exif2css.js"></script>
-<script>
-    var img = document.querySelector('img')
-    var orientation = 6
-    var css = exif2css(orientation)
-
-    if (css.transform) {
-        img.style.transform = css.transform
-    }
-    if (css['transform-origin']) {
-        img.style['transform-origin'] = css['transform-origin']
-    }
-</script>
-```
-
-%~%

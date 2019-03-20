@@ -2,7 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/exif2css.svg)](https://npmjs.org/package/exif2css)
 
-`exif2css` Converts EXIF Orientation To CSS Transform Rules.
+`exif2css` Converts EXIF Orientation To CSS Transform Rules (in 772 bytes gzipped).
 
 ```sh
 yarn add -E exif2css
@@ -17,8 +17,8 @@ yarn add -E exif2css
 - [`exif2css(orientation: number): { transform: string, transform-origin?: string, transforms: Object }`](#exif2cssorientation-number--transform-string-transform-origin-string-transforms-object-)
   * [`Exif2CssReturn`](#type-exif2cssreturn)
 - [Usage](#usage)
-  * [As a _Node_ module:](#as-a-_node_-module)
-  * [As a script:](#as-a-script)
+  * [As Node Module](#as-node-module)
+  * [As Script](#as-script)
 - [Testing](#testing)
 - [Copyright](#copyright)
 
@@ -117,33 +117,40 @@ __<a name="type-exif2cssreturn">`Exif2CssReturn`</a>__: The return type of the f
 
 The module can be either required in _Node.JS_, or downloaded as the compiled file from the _dist_ folder and inserted on the webpage.
 
-### As a _Node_ module:
+### As Node Module
+
+The package is published both as CommonJS module with the `main` field, or as a ES6 module with the `module` field. Node will automatically pick up the `main` version, whereas some bundles will be able to use the module.
 
 ```bash
-npm i exif2css --save
+yarn add -E exif2css
+npm i exif2css
 ```
 
 ```js
+import exif2css from 'exif2css' // or
 const exif2css = require('exif2css')
+
 const css = exif2css(6)
 ```
 
-### As a script:
+### As Script
+
+_Exif2Css_ has been compiled with [_Depack_](https://github.com/dpck/depack) using Google Closure Compiler. Download the [file](https://github.com/demimonde/exif2css/blob/master/dist/exif2css.js) manually and embed it on the webpage.
 
 ```html
 <img src="some-image.jpg">
 <script src="exif2css.js"></script>
 <script>
-    var img = document.querySelector('img')
-    var orientation = 6
-    var css = exif2css(orientation)
+  var img = document.querySelector('img')
+  var orientation = 6
+  var css = exif2css(orientation)
 
-    if (css.transform) {
-        img.style.transform = css.transform
-    }
-    if (css['transform-origin']) {
-        img.style['transform-origin'] = css['transform-origin']
-    }
+  if (css.transform) {
+      img.style.transform = css.transform
+  }
+  if (css['transform-origin']) {
+      img.style['transform-origin'] = css['transform-origin']
+  }
 </script>
 ```
 

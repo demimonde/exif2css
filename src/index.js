@@ -1,38 +1,38 @@
 const propMap = {
-  r: 'rotate',
-  ry: 'rotateY',
-  t: 'translateX',
-  ty: 'translateY',
+  'r': 'rotate',
+  'ry': 'rotateY',
+  't': 'translateX',
+  'ty': 'translateY',
 }
 
 const transformsMap = {
   '2': {
-    ry: 180,
+    'ry': 180,
   },
   '3': {
-    r: 180,
+    'r': 180,
   },
   '4': {
-    r: 180,
-    ry: 180,
+    'r': 180,
+    'ry': 180,
   },
   '5': {
-    r: 270,
-    ry: 180,
+    'r': 270,
+    'ry': 180,
   },
   '6': {
-    ty: -1,
-    r: 90,
+    'ty': -1,
+    'r': 90,
   },
   '7': {
-    ty: -1,
-    t: -1,
-    r: 90,
-    ry: 180,
+    'ty': -1,
+    't': -1,
+    'r': 90,
+    'ry': 180,
   },
   '8': {
-    t: -1,
-    r: 270,
+    't': -1,
+    'r': 270,
   },
 }
 

@@ -1,7 +1,7 @@
 {
   "name": "exif2css",
   "version": "1.2.0",
-  "description": "Convert EXIF orientation to CSS transform",
+  "description": "Convert EXIF orientation to CSS transform rules.",
   "main": "build/index.js",
   "module": "src/index.js",
   "scripts": {
@@ -13,6 +13,7 @@
     "lint": "eslint .",
     "doc": "NODE_DEBUG=doc doc documentary -o README.md",
     "b": "alamode src -o build -s",
+    "depack": "depack-dev depack.js -c -o dist/exif2css.js -a --isolation_mode IIFE",
     "d": "yarn-s d1",
     "d1": "NODE_DEBUG=doc doc src/index.js -g",
     "build": "yarn-s d b doc",

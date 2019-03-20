@@ -1,16 +1,20 @@
 import core from '@idio/core'
 import render from '@depack/render'
+import { c } from 'erte'
+
+const testBuild = process.env.ALAMODE_ENV == 'test-build'
+if (testBuild) console.log(c('Testing Depack build...', 'yellow'))
 
 export default class IdioContext {
-  get path() {
-    return process.env.ALAMODE_ENV == 'test-build' ? 'build' : 'src'
-  }
   async _init() {
     const { app, url } = await core({
-      frontend: { directory: ['src', 'build'] },
+      frontend: { directory: ['src'] },
+      compress: { use: true, config: {
+        threshold: 0,
+      } },
       static: {
         use: true,
-        root: 'test/fixture/images',
+        root: ['test/fixture/images', 'dist'],
       },
       serve: async (ctx) => {
         ctx.body = render(<html>
@@ -19,8 +23,13 @@ export default class IdioContext {
           </head>
           <body>
             <img src={`${ctx.path}.jpg`} />
-            <script type="module" dangerouslySetInnerHTML={{
-              __html: `import exif2css from '/${this.path}/'
+            {!testBuild && <script type="module" dangerouslySetInnerHTML={{
+              __html: `import exif2css from '/${this.path}/'`,
+            }}>
+            </script>}
+            {testBuild && <script src="exif2css.js"></script>}
+            <script type={testBuild ? '' : 'module'} dangerouslySetInnerHTML={{
+              __html: `
 const img = document.querySelector('img')
 const css = exif2css(${ctx.path.replace('/', '')})
 
@@ -30,10 +39,8 @@ if (css.transform) {
 if (css['transform-origin']) {
   img.style['-webkit-transform-origin'] = css['transform-origin']
 }
-window.result = css
-`,
-            }}>
-            </script>
+window.result = css`,
+            }}></script>
           </body>
         </html>, { addDoctype: true })
       },
